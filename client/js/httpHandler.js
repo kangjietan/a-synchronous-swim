@@ -1,9 +1,28 @@
 (function() {
-
   const serverUrl = 'http://127.0.0.1:3000';
+  const SwimTeam = require('./swimTeam.js');
+  const swimteam = new SwimTeam;
 
   //
   // TODO: build the swim command fetcher here
+
+  window.test = setInterval(function(){
+    $.ajax({
+      type: 'GET',
+      data: null,
+      url: serverUrl,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: (data) => {
+        // reload the page
+        swimteam.move(data);
+        console.log(data);
+        // window.location = window.location.href;
+      }
+    });
+  }, 1000);
+
   //
 
   /////////////////////////////////////////////////////////////////////
@@ -17,7 +36,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: serverUrl,
       cache: false,
       contentType: false,
       processData: false,
