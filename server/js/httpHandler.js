@@ -15,10 +15,15 @@ module.exports.initialize = (queue) => {
 module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
   res.writeHead(200, headers);
-  var moves = ['left', 'right', 'up', 'down'];
-  var randomIdx = Math.floor(Math.random() * 4);
-  var move = moves[randomIdx]
-  res.write(move);
-  res.end();
-  next(); // invoke next() at the end of a request to help with testing!
+  if (req.method === 'OPTIONS') {
+    res.end();
+    next();
+  } else {
+    var moves = ['left', 'right', 'up', 'down'];
+    var randomIdx = Math.floor(Math.random() * 4);
+    var move = moves[randomIdx]
+    res.write(move);
+    res.end();
+    next(); // invoke next() at the end of a request to help with testing!
+  }
 };
