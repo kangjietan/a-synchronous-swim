@@ -23,12 +23,21 @@ describe('server responses', () => {
 
   it('should respond to a GET request for a swim command', (done) => {
     // write your test here
+    let {req, res} = server.mock('http://127.0.0.1:3000', 'GET');
+
+    var moves = ['left', 'right', 'up', 'down'];
+    httpHandler.router(req, res);
+    expect(res._responseCode).to.equal(200);
+    var expectedStr = moves.indexOf(res._data);
+    console.log(expectedStr);
+    expect(res._ended).to.equal(true);
+    // expect(expectedStr).to.equal(true);
     done();
   });
 
   xit('should respond with 404 to a GET request for a missing background image', (done) => {
     httpHandler.backgroundImageFile = path.join('.', 'spec', 'missing.jpg');
-    let {req, res} = server.mock('FILL_ME_IN', 'GET');
+    let {req, res} = server.mock('http://127.0.0.1:3000', 'GET');
 
     httpHandler.router(req, res, () => {
       expect(res._responseCode).to.equal(404);
