@@ -4,7 +4,7 @@
 
   //
   // TODO: build the swim command fetcher here
-  console.log('test');
+  // console.log('test');
   setInterval(function(){
     $.ajax({
       type: 'GET',
