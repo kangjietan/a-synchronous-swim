@@ -4,24 +4,24 @@
 
   //
   // TODO: build the swim command fetcher here
-  // console.log('test');
-  setInterval(function(){
-    $.ajax({
-      type: 'GET',
-      data: null,
-      url: serverUrl,
-      cache: false,
-      contentType: false,
-      processData: false,
-      success: (data) => {
-        // reload the page
-        // swimteam.move(data);
-        console.log(data);
-        SwimTeam.move(data);
-        // window.location = window.location.href;
-      }
-    });
-  }, 1000);
+
+  // setInterval(function(){
+  //   $.ajax({
+  //     type: 'GET',
+  //     data: null,
+  //     url: serverUrl,
+  //     cache: false,
+  //     contentType: false,
+  //     processData: false,
+  //     success: (data) => {
+  //       // reload the page
+  //       // swimteam.move(data);
+  //       console.log(data);
+  //       SwimTeam.move(data);
+  //       // window.location = window.location.href;
+  //     }
+  //   });
+  // }, 1000);
 
   //
 
